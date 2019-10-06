@@ -311,12 +311,12 @@ def compute_split(length, seed=1337, pc=0.80):
 def compute_or_load_vdict(dir_sc, dir_sift, inames, compute_sift_image,  path_vdict, compute_vdict):
     print("Computing or loading visual dict")
     if os.path.isfile(path_vdict):
-        return np.load(open(path_vdict, "rb"))
+        return np.load(path_vdict)
     else:
         sifts_list_by_image = compute_load_sift_dataset(dir_sc, dir_sift, inames, compute_sift_image)
 
         vdict = compute_vdict(sifts_list_by_image)
-        np.save(open(path_vdict, "wb"), vdict)
+        np.save(path_vdict, vdict)
         return vdict
 
 def compute_regions(im, k=16, s=8):

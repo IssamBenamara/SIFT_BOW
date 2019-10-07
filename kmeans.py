@@ -12,6 +12,7 @@ def compute_visual_dict(sift, n_clusters=1000, n_init=1, verbose=1):
     # randomly pick sift
     ids, _ = compute_split(sift.shape[0], pc=0.05)
     sift = sift[ids]
+    sift = sift/255
 
     kmeans = KMeans(n_clusters=n_clusters, n_init = n_init).fit(sift)
     cluster_centers = kmeans.cluster_centers_.tolist()

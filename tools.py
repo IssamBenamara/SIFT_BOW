@@ -449,6 +449,6 @@ def display_vdregions_image(im, vdict, sift, feats, colors=None, vdregions=None)
         if vdregions[i] is None:
             vdregions[i] = np.zeros((16,16))
     if type(vdregions) == list:
-        vdregions = np.stack(vdregions)
+        vdregions = np.asarray(vdregions)
     print(vdregions.shape)
     display_vdregions(vdregions, colors=colors)

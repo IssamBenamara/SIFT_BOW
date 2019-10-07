@@ -8,7 +8,7 @@ def compute_feats(vdict, image_sifts):
     sift = np.concatenate(sift, axis=0)
     
     # Coding
-    dm = distance_matrix(sift,vidct)
+    dm = distance_matrix(sift,vidct)**2
     ids = np.argmin(dm,axis=1)
     h = np.zeros(dm.shape)
     h[range(len(ids)),ids] = 1
